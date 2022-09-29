@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+/// Models
 TrendingMovieModel trendingMovieModelFromJson(String str) =>
     TrendingMovieModel.fromJson(json.decode(str));
 
@@ -39,18 +40,12 @@ class TrendingMovieModel {
         "total_results": totalResults == null ? null : totalResults,
       };
   TrendingMovieModel toEntity() => TrendingMovieModel(
-    page: page,
-    results: results,
-    totalPages: totalPages,
-    totalResults: totalResults
-  );
+      page: page,
+      results: results,
+      totalPages: totalPages,
+      totalResults: totalResults);
 
-  List<Object?> get props => [
-    page,
-    results,
-    totalPages,
-    totalResults
-  ];
+  List<Object?> get props => [page, results, totalPages, totalResults];
 }
 
 class Result {

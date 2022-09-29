@@ -7,7 +7,8 @@ import 'package:clean_architecture_project/data/models/trending_movie_model.dart
 import 'package:clean_architecture_project/domain/repositories/trending_movie_repository.dart';
 import 'package:dartz/dartz.dart';
 
-//Connection between Data Repository  && Failure
+//Connection between domain Repository  && Failure
+
 class TrendingMovieRepositoryImpl implements TrendingMovieRepository {
   final RemoteDataSource remoteDataSource;
 
@@ -20,7 +21,7 @@ class TrendingMovieRepositoryImpl implements TrendingMovieRepository {
       return Right(result!);
     } on ServerException {
       return const Left(ServerFailure(''));
-    }on SocketException {
+    } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
     }
   }
